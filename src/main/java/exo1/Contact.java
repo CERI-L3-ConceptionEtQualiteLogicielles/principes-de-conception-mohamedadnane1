@@ -21,4 +21,5 @@ public class Contact {
     public String toString() {
         return "Nom: " + nom + ", Numéro: " + numero;
     }
+
 }
