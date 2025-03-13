@@ -1,20 +1,25 @@
 package exo1;
 
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        Contact c1 = new Contact("Alice", "123456789");
 
-        System.out.println("Test des formats d'affffichage :");
+        Contact contact1 = new Contact.ContactBuilder("Adnane", "2306183").build();
+        System.out.println("Contact minimal :");
+        System.out.println(contact1);
 
-        System.out.println("\nFormat Texte :");
-        System.out.println(c1.getInfoContact());
 
-        c1.setFormat("XML");
-        System.out.println("\nFormat XML :");
-        System.out.println(c1.getInfoContact());
+        Contact contact2 = new Contact.ContactBuilder("momo", "232323")
+                .addPrenom("walid")
+                .addCivilite("Monsieur")
+                .addAdresseMail("adnane.momo@example.com")
+                .addDateAnniversaire(LocalDate.of(1990, 5, 20))
+                .addLieuTravail("cericar XYZ")
+                .addVille("Paris")
+                .build();
 
-        c1.setFormat("JSON");
-        System.out.println("\nFormat JSON :");
-        System.out.println(c1.getInfoContact());
+        System.out.println("\nContact complet :");
+        System.out.println(contact2);
     }
 }
