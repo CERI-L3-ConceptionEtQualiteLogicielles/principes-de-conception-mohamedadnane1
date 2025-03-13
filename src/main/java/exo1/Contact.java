@@ -59,4 +59,62 @@ public final class Contact {
                 ", ville='" + ville + '\'' +
                 '}';
     }
+    // 🔹 Classe interne statique `ContactBuilder`
+    public static class ContactBuilder {
+        private final String nom;
+        private final String numero;
+        private String prenom;
+        private String civilite;
+        private String adressePostale;
+        private String adresseMail;
+        private LocalDate dateAnniversaire;
+        private String lieuTravail;
+        private String ville;
+
+        public ContactBuilder(String nom, String numero) {
+            this.nom = nom;
+            this.numero = numero;
+        }
+
+        public ContactBuilder addPrenom(String prenom) {
+            this.prenom = prenom;
+            return this;
+        }
+
+        public ContactBuilder addCivilite(String civilite) {
+            this.civilite = civilite;
+            return this;
+        }
+
+        public ContactBuilder addAdressePostale(String adressePostale) {
+            this.adressePostale = adressePostale;
+            return this;
+        }
+
+        public ContactBuilder addAdresseMail(String adresseMail) {
+            this.adresseMail = adresseMail;
+            return this;
+        }
+
+        public ContactBuilder addDateAnniversaire(LocalDate dateAnniversaire) {
+            this.dateAnniversaire = dateAnniversaire;
+            return this;
+        }
+
+        public ContactBuilder addLieuTravail(String lieuTravail) {
+            this.lieuTravail = lieuTravail;
+            return this;
+        }
+
+        public ContactBuilder addVille(String ville) {
+            this.ville = ville;
+            return this;
+        }
+
+        public Contact build() {
+            return new Contact(this);
+        }
+    }
 }
+
+
